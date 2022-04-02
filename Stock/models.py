@@ -9,5 +9,5 @@ class Stock(models.Model):
     unidad = models.CharField(max_length=8)
     cantidad = models.CharField(max_length=8)
     costo = models.CharField(max_length=8)
-    precio = models.CharField(max_length=8)
+    precio = models.CharField(max_length=10)
     ultima_compra = models.DateTimeField(auto_now=False, auto_now_add=False)
