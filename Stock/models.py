@@ -5,9 +5,10 @@ from django.db import models
 
 class Stock(models.Model):
     
-    nombre = models.CharField(max_length=80)
-    unidad = models.CharField(max_length=8)
-    cantidad = models.CharField(max_length=8)
-    costo = models.CharField(max_length=8)
-    precio = models.CharField(max_length=10)
-    ultima_compra = models.DateTimeField(auto_now=False, auto_now_add=False)
+    rubro = models.CharField(max_length=80) #Carnes, verduras, bebida, etc...
+    subrubro =models.CharField(max_length=80) # Vacuna, cerdo, agua, vino, ect...
+    nombre = models.CharField(max_length=80) #Nombre producto
+    unidad = models.CharField(max_length=8) #Kilo, gramo, litro, etc...
+    cantidad = models.CharField(max_length=8) #Unidades
+    costo = models.CharField(max_length=8)  #Valor de adquisición de ultima compra (NETO DE IVA)
+    ultima_compra = models.DateTimeField(auto_now=False, auto_now_add=False) #Fecha ultima compra
