@@ -1,5 +1,3 @@
-from ast import List
-from dataclasses import fields
 from django import forms
 from Stock.models import *
 
@@ -21,6 +19,6 @@ class StockForm(forms.ModelForm):
         
     class Meta:
         model = Stock
-        fields = ['rubro', 'subrubro', 'nombre', 'unidad']
+        fields = ['rubro', 'subrubro', 'producto', 'unidad']
         
         
