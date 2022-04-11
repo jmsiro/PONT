@@ -5,6 +5,10 @@ from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
+def usuarios(request):
+
+    return render(request, "00_usuarios.html")
+
 #Crea usuario utilizando el modelo de Django
 def usuario_form(request):
     contexto = {}

@@ -3,6 +3,10 @@ from Compras.forms import *
 
 # Create your views here.
 
+def compras(request):
+
+    return render(request, "00_compras.html")
+
 def compras_form(request):
     contexto = {}
     

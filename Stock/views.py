@@ -3,6 +3,10 @@ from Stock.forms import *
 
 # Create your views here.
 
+def stock(request):
+
+    return render(request, "00_stock.html")
+
 def stock_form(request):
     contexto = {}
     

@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
+from PONT import views
 
 urlpatterns = [
+    path('', views.inicio, name='Inicio'),
     path('admin/', admin.site.urls),
     path('usuarios/', include('django.contrib.auth.urls'), name=""),
-    path('usuarios/', include('Usuarios.urls'), name=""),
-    path('stock/', include('Stock.urls'), name=""),
-    path('compras/', include('Compras.urls'), name=""),
+    path('usuarios/', include('Usuarios.urls'), name="Usuarios"),
+    path('stock/', include('Stock.urls'), name="Stock"),
+    path('compras/', include('Compras.urls'), name="Compras"),
 ]
