@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'Pedidos',
     'Compras',
     'Movimientos_Internos',
-    'Consumos'
+    'Consumos',
+    'calculation'
 ]
 
 MIDDLEWARE = [

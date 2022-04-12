@@ -12,9 +12,19 @@
         
         <form action="" method="POST">{% csrf_token %}
             
-            <p>
-                {{compras_formulario.as_p}}
-            </p>
+            
+            {% for campo in compras_formulario %}
+                <p> 
+                {{campo.label_tag}}
+                <br>    
+                {{campo}}    
+                </p> 
+            {% endfor %}
+                
+            {% comment %} Ver como obtener un ID de cada campo para hacer los calculos con JS (GET element)
+            neto
+            iva
+            total {% endcomment %}
             
             <br><input class="btn btn-success btn-lg active" type="submit" value="Confirmar"> 
 

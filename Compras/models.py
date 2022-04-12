@@ -26,3 +26,33 @@ class Compras(models.Model):
     percepciones = models.CharField(max_length=20) 
     
     importe_total = models.CharField(max_length=20) #Importe calculado
+    importe_total_control = models.CharField(max_length=20) #Importe tipeado
+    
+    @property
+    def neto(self):
+        p = self.precio_unitario 
+        q = self.cantidad
+        neto = p * q
+        return neto
+    
+    @property
+    def iva(self):
+        neto = self.importe_neto 
+        alicuota = self.alicuota_iva
+        iva = neto * alicuota
+        return iva
+    
+    @property
+    def total(self):
+        neto = self.importe_neto
+        iva = self.importe_iva
+        no_g = self.no_gravado
+        percep = self.percepciones
+        total = neto + iva + no_g + percep
+        return total
+    
+    def save(self, *args, **kwargs):
+        self.importe_neto = self.neto
+        self.importe_iva = self.iva
+        self.importe_total = self.total
+        super(Compras, self).save(*args, **kwargs)

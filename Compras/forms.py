@@ -1,6 +1,7 @@
 from django import forms
 from Compras.models import *
 
+
 #Formulario para alta de nuevo producto/os (Hereda directamente de Stock por usamos forms.ModelForm y no forms.Form)
 
 DOCUMENTO = [
@@ -34,9 +35,8 @@ class ComprasForm(forms.ModelForm):
     tipo_comprobante1 =forms.CharField(widget=forms.Select(choices=DOCUMENTO))
     tipo_comprobante2 =forms.CharField(widget=forms.Select(choices=TIPO))
     alicuota_iva = forms.CharField(widget=forms.Select(choices=ALICUOTA))
-        
-        
+    
     class Meta:
         model = Compras
-        fields = ['fecha', 'proveedor', 'cuit', 'tipo_comprobante1', 'tipo_comprobante2', 'numero_comprobante', 'producto', 'unidad', 'cantidad','precio_unitario', 'importe_neto', 'alicuota_iva', 'importe_iva', 'no_gravado', 'percepciones', 'importe_total']
-    
+        fields = ['fecha', 'proveedor', 'cuit', 'tipo_comprobante1', 'tipo_comprobante2', 'numero_comprobante', 'producto', 'unidad', 'cantidad','precio_unitario', 'alicuota_iva', 'no_gravado', 'percepciones', 'importe_total_control']
+        readonly_fields = ['importe_total']
